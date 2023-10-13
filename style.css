@@ -1,0 +1,97 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fff;
+}
+
+.clock {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  background-color: lightgray;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.clock::before {
+  content: "";
+  width: 525px;
+  height: 525px;
+  border-radius: 50%;
+  position: absolute;
+  background: #000;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  z-index: -1;
+}
+
+.number {
+  transform: rotate(calc(30deg * var(--n)));
+  position: absolute;
+  text-align: center;
+  inset: 20px;
+  font-size: 40px;
+  color: #000;
+}
+.number b {
+  transform: rotate(calc(-30deg * var(--n)));
+  display: inline-block;
+}
+
+.center-dot {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: #000;
+  border: 6px solid #000;
+  border-radius: 50%;
+}
+
+.hour-hand,
+.munite-hand,
+.seconde-hand {
+  --rotate: 0;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+  transform-origin: bottom;
+  border-radius: 30px 30px 0 0;
+}
+
+.hour-hand {
+  width: 8px;
+  height: 130px;
+  background: #000;
+}
+
+.munite-hand {
+  width: 6px;
+  height: 180px;
+  background: #000;
+}
+
+.seconde-hand {
+  width: 2px;
+  height: 180px;
+  background: #000;
+}
+
+#nameDate {
+  margin-top: 260px;
+  z-index: 3;
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+}
